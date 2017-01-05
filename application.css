@@ -1,0 +1,112 @@
+@media (max-width: 768px) {}
+@media (min-width: 768px) {
+    .meal {
+        height: 100px;
+    }
+    .items {
+        font-size: 8px;
+        padding-left: 2px;
+    }
+}
+@media (min-width: 992px) {
+    .seven-cols .col-md-1,
+    .seven-cols .col-lg-1 {
+        width: 14.285714285714285714285714285714%;
+        *width: 14.285714285714285714285714285714%;
+    }
+    .meal {
+        height: 130px;
+    }
+    .items {
+        font-size: 10px;
+        padding-left: 5px;
+    }
+}
+
+/**
+ *  The following is not really needed in this case
+ *  Only to demonstrate the usage of @media for large screens
+ */
+
+@media (min-width: 1200px) {
+    .seven-cols .col-md-1,
+    .seven-cols .col-lg-1 {
+        width: 14.285714285714285714285714285714%;
+        *width: 14.285714285714285714285714285714%;
+    }
+    .meal {
+        height: 160px;
+    }
+}
+body {
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}
+.items {
+    list-style: none;
+    font-size: 12px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border-bottom: 1px;
+}
+.field-name {
+    font-size: 14px;
+    font-family: cursive;
+    text-decoration: underline;
+}
+.is-table-row {
+    display: table;
+}
+.is-table-row [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+.jumbotron {
+    padding: 20px 30px 20px 30px;
+    margin: 0px auto;
+    background: #75a806;
+    color: floralwhite;
+}
+.row-footer {
+    background-color: #c0c4b8;
+    margin: 0px auto;
+    padding: 20px 0px 20px 0px;
+}
+address {
+    font-size: 80%;
+    margin: 0px;
+    color: #0f0f0f;
+}
+.navbar-inverse {
+    background: #1a3300;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background: #0a1601;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background: #0a1601;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a,
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+    background-color: #1a3300;
+    color: #eeeeee;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a:hover {
+    color: #000000;
+}
+.ng-invalid.ng-dirty {
+    border-color: red;
+}
+.ng-valid.ng-dirty {
+    border-color: green;
+}

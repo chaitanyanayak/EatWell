@@ -1,0 +1,17 @@
+{
+    "recipes": [
+        {
+            "name": "Stephan Curry",
+            "description": "Stephen Currys curry",
+            "servingsize": "4",
+            "instructions": ["Add Stephen in the basket", "Add curry in the basket"],
+            "ingredients": [
+                {
+                    "ingredient": "Chicken",
+                    "quantity": "3 lbs"
+
+                }
+            ]
+        }
+    ]
+}

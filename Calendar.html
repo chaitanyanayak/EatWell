@@ -1,0 +1,279 @@
+<div id="container" class="container" ng-controller="WeekController as weekCtrl">
+        <div class="week row seven-cols">
+            <div class="day col-xs-12 col-sm-4 col-md-1" ng-repeat="day in weekCtrl.week">
+                <h3>{{day.day}}</h3>
+                <h5>{{day.date}}</h5>
+                <div class="meal">
+                    <h4>Breakfast</h4>
+                    <form name="addBreakfast" ng-controller="AddItemController as addItemCtrl" ng-submit="addItemCtrl.addBreakfast(day)">
+                        <input type="text" class="newitem" ng-model="addItemCtrl.breakfast"/>
+                        <input type="submit" class="btn btn-primary pull-right" value="Add"/>
+                    </form>                    
+                    <ul class="items" ng-repeat="item in day.breakfast">
+                        <li>{{item}}</li>
+                    </ul>
+                </div>
+                <div class="meal">
+                    <h4>Lunch</h4>
+                    <ul class="items" ng-repeat="item in day.lunch">
+                        <li>{{item}}</li>
+                    </ul>
+                </div>
+                <div class="meal">
+                    <h4>Dinner</h4>
+                    <ul class="items" ng-repeat="item in day.dinner">
+                        <li>{{item}}</li>
+                    </ul>
+                </div>
+                <div class="meal">
+                    <h4>Snacks</h4>
+                    <ul class="items" ng-repeat="item in day.snacks">
+                        <li>{{item}}</li>
+                    </ul>
+                </div>                
+            </div>
+            <!--<table class="table table-striped" >
+                <thead>
+                    <tr><th>date</th></tr>              
+                </thead>
+                <tbody>
+                    <tr ng-repeat="day in weekCtrl.week">
+                        <td>{{day.day}}</td>
+                    </tr>
+                </tbody>
+            
+            </table>-->
+            <!--<div class="day col-xs-12 col-sm-4 col-md-1">
+                <h2>Monday</h2>
+                <h3>12-26-2016</h3>
+                <ul id="day" class="list-unstyled">
+                    <li class="meal">
+                        <h3>Breakfast</h3>
+                        <button id="addmeal">Add</button>
+                        <ul class="items">
+                            <li>Oatmeal</li>
+                            <li>Coffee</li>
+                            <li>Banana</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Lunch</h3>
+                        <ul>
+                            <li>Chicken Caesan salad</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Dinner</h3>
+                        <ul>
+                            <li>Grilled Salmon</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Snacks</h3>
+                        <ul>
+                            <li>Fruit bowl</li>
+                            <li>Protien shake</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-1">
+                <h2>Tuesday</h2>
+                <h3>12-27-2016</h3>
+                <ul id="day" class="list-unstyled">
+                    <li class="meal">
+                        <h3>Breakfast</h3>
+                        <ul>
+                            <li>Oatmeal</li>
+                            <li>Coffee</li>
+                            <li>Banana</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Lunch</h3>
+                        <ul>
+                            <li>Chicken Caesan salad</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Dinner</h3>
+                        <ul>
+                            <li>Grilled Salmon</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Snacks</h3>
+                        <ul>
+                            <li>Fruit bowl</li>
+                            <li>Protien shake</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-1">
+                <h2>Wednesday</h2>
+                <h3>12-28-2016</h3>
+                <ul id="day" class="list-unstyled">
+                    <li class="meal">
+                        <h3>Breakfast</h3>
+                        <ul>
+                            <li>Oatmeal</li>
+                            <li>Coffee</li>
+                            <li>Banana</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Lunch</h3>
+                        <ul>
+                            <li>Chicken Caesan salad</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Dinner</h3>
+                        <ul>
+                            <li>Grilled Salmon</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Snacks</h3>
+                        <ul>
+                            <li>Fruit bowl</li>
+                            <li>Protien shake</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-1">
+                <h2>Thursday</h2>
+                <h3>12-29-2016</h3>
+                <ul id="day" class="list-unstyled">
+                    <li class="meal">
+                        <h3>Breakfast</h3>
+                        <ul>
+                            <li>Oatmeal</li>
+                            <li>Coffee</li>
+                            <li>Banana</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Lunch</h3>
+                        <ul>
+                            <li>Chicken Caesan salad</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Dinner</h3>
+                        <ul>
+                            <li>Grilled Salmon</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Snacks</h3>
+                        <ul>
+                            <li>Fruit bowl</li>
+                            <li>Protien shake</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-1">
+                <h2>Friday</h2>
+                <h3>12-30-2016</h3>
+                <ul id="day" class="list-unstyled">
+                    <li class="meal">
+                        <h3>Breakfast</h3>
+                        <ul>
+                            <li>Oatmeal</li>
+                            <li>Coffee</li>
+                            <li>Banana</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Lunch</h3>
+                        <ul>
+                            <li>Chicken Caesan salad</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Dinner</h3>
+                        <ul>
+                            <li>Grilled Salmon</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Snacks</h3>
+                        <ul>
+                            <li>Fruit bowl</li>
+                            <li>Protien shake</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-1">
+                <h2>Saturday</h2>
+                <h3>12-31-2016</h3>
+                <ul id="day" class="list-unstyled">
+                    <li class="meal">
+                        <h3>Breakfast</h3>
+                        <ul>
+                            <li>Oatmeal</li>
+                            <li>Coffee</li>
+                            <li>Banana</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Lunch</h3>
+                        <ul>
+                            <li>Chicken Caesan salad</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Dinner</h3>
+                        <ul>
+                            <li>Grilled Salmon</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Snacks</h3>
+                        <ul>
+                            <li>Fruit bowl</li>
+                            <li>Protien shake</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-1">
+                <h2>Sunday</h2>
+                <h3>12-31-2016</h3>
+                <ul id="day" class="list-unstyled">
+                    <li class="meal">
+                        <h3>Breakfast</h3>
+                        <ul>
+                            <li>Oatmeal</li>
+                            <li>Coffee</li>
+                            <li>Banana</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Lunch</h3>
+                        <ul>
+                            <li>Chicken Caesan salad</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Dinner</h3>
+                        <ul>
+                            <li>Grilled Salmon</li>
+                        </ul>
+                    </li>
+                    <li class="meal">
+                        <h3>Snacks</h3>
+                        <ul>
+                            <li>Fruit bowl</li>
+                            <li>Protien shake</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+    </div>
