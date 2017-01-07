@@ -24,7 +24,7 @@
         //}, function () {
         //this.recipes = temprecipes;
 
-        fetch('http://localhost:3000/recipes/')
+        /*fetch('http://localhost:3000/recipes/')
             .then(function (response) {
                 $scope.recipes = response.json();
                 alert($scope.recipes[0].name);
@@ -32,7 +32,7 @@
                 console.log('parsed json: ', json);
             }).catch(function (ex) {
                 console.log('parsing failed: ', ex);
-            });
+            });*/
         /*$http.get('http://localhost:3000/recipes/')
             .success(function (data) {
                 this.recipes = = data;

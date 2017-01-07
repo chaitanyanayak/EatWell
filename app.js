@@ -1,29 +1,29 @@
 (function () {
-    
-    var app = angular.module('eatWell', ['app-directives','recipe']);
-    
+
+    var app = angular.module('eatWell', ['app-directives', 'recipe']);
+
     app.controller('WeekController', function () {
         this.week = weekData;
-        
-        
+
+
     });
-    
+
     app.controller('AddItemController', function () {
-        this.breakfast="";
-        
-        this.addBreakfast = function(day) {
+        this.breakfast = "";
+
+        this.addBreakfast = function (day) {
             day.breakfast.push(this.breakfast);
-            this.breakfast="";
+            this.breakfast = "";
         };
     });
-    
-    $(document).ready(function() {
-       /* $('.day').on('click','.addButton',function () {
-            $(this).before('<input type="text" class="newitem"/>');
-            $(this).removeClass("addButton");
-            $(this).addClass("addNewItem");
-        });*/
-        $('.day').on('click','.addNewItem',function (day) {
+
+    $(document).ready(function () {
+        /* $('.day').on('click','.addButton',function () {
+             $(this).before('<input type="text" class="newitem"/>');
+             $(this).removeClass("addButton");
+             $(this).addClass("addNewItem");
+         });*/
+        $('.day').on('click', '.addNewItem', function (day) {
             var newItem = $(this).closest('.day').find('.newitem');
             day.breakfast.push(newItem.val());
             alert(newItem.val());
@@ -32,15 +32,15 @@
             //newItem.remove();
         });
     });
-    
+
     var addItem = function (meal, day, item) {
-            //var newItem = $(this).closest('.day').find('.newitem');
-            day.breakfast.push(item);
-            alert(newItem.val());
-            //$(this).removeClass("addNewItem");
-            //$(this).addClass("addButton");
-            //newItem.remove();
-        };
+        //var newItem = $(this).closest('.day').find('.newitem');
+        day.breakfast.push(item);
+        alert(newItem.val());
+        //$(this).removeClass("addNewItem");
+        //$(this).addClass("addButton");
+        //newItem.remove();
+    };
 
 
     var weekData = [{
@@ -171,4 +171,4 @@
             'Protien shake'
         ]
     }];
-}) ();
+})();
