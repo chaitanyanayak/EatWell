@@ -11,27 +11,36 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li ng-class="{ active:tab.isSet(1) }"><a href ng-click="tab.setTab(1)"><span class="glyphicon glyphicon-home"
+                <li><a ui-sref="app"><span class="glyphicon glyphicon-home"
                          aria-hidden="true"></span>Home</a></li>
-                <li class="active" ng-class="{ active:tab.isSet(2) }"><a href ng-click="tab.setTab(2)">Recipes</a></li>
+                <li><a ui-sref="app.addrecipe">Add Recipe</a></li>
+                <li><a ui-sref="app.recipe({id: 1})">Recipe</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                             Menu <span class="caret"></span></a>
+                             Recipes <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Appetizers</a></li>
-                        <li><a href="#">Main Courses</a></li>
-                        <li><a href="#">Desserts</a></li>
-                        <li><a href="#">Drinks</a></li>
+                        <li><a ui-sref="app.addrecipe">Add Recipes</a></li>
+
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Specials</li>
-                        <li><a href="#">Lunch Buffet</a></li>
-                        <li><a href="#">Weekend Brunch</a></li>
+                        <li class="dropdown-header">Recipes</li>
+                        <li><a ui-sref="app.recipe">Recipe</a></li>
                     </ul>
                 </li>
-                <li ng-class="{ active:tab.isSet(3) }"><a href ng-click="tab.setTab(3)"><span class="glyphicon glyphicon-info-sign"
+                <li><a ui-sref="app.aboutus"><span class="glyphicon glyphicon-info-sign"
                          aria-hidden="true"></span>About</a></li>
-                <li><a href="#">Contact</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-xs-12 col-sm-8">
+                <h2>Welcome to Eat Well !</h2>
+                <p>Manage your food habits</p>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+            </div>
+        </div>
+    </div>
+</div>

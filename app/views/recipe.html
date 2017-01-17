@@ -1,0 +1,25 @@
+<div class="container" ng-controller="RecipeController">
+    <div class="row">
+        <span class="field-name col-xs-3">Name</span>
+        <span class="col-xs-3">{{recipe.name}}</span>
+    </div>
+    <div class="row">
+        <span class="field-name col-xs-4">Description</span>
+        <span class="col-xs-4">{{recipe.description}}</span>
+    </div>
+    <div class="row">
+        <span class="field-name col-xs-2">Serving Size</span>
+        <span class="col-xs-2">{{recipe.servingsize}}</span>
+    </div>
+    <div class="row">
+        <span class="field-name col-xs-3">Instructions</span>
+        <span class="col-xs-3">{{recipe.instructions[0]}}</span>
+    </div>
+    <div class="row">
+    </div>
+    <div class="row" ng-repeat="ingr in recipe.ingredients">
+        <span class="col-xs-3">{{ingr.ingredient}}</span>
+        <span class="col-xs-4">{{ingr.quantity}}</span>
+    </div>
+
+</div>

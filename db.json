@@ -1,17 +1,122 @@
 {
-    "recipes": [
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Chicken Curry",
+      "description": "Chicken curry",
+      "servingsize": "4",
+      "instructions": [
+        "Add Chicken",
+        "Add curry in the basket"
+      ],
+      "ingredients": [
         {
-            "name": "Stephan Curry",
-            "description": "Stephen Currys curry",
-            "servingsize": "4",
-            "instructions": ["Add Stephen in the basket", "Add curry in the basket"],
-            "ingredients": [
-                {
-                    "ingredient": "Chicken",
-                    "quantity": "3 lbs"
-
-                }
-            ]
+          "ingredient": "Chicken",
+          "quantity": "1 lbs"
         }
-    ]
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Stephan Curry",
+      "description": "Stephen Currys curry",
+      "servingsize": "2",
+      "instructions": [
+        "Add Stephen in the basket",
+        "Add curry in the basket"
+      ],
+      "ingredients": [
+        {
+          "ingredient": "Chicken",
+          "quantity": "3 lbs"
+        }
+      ]
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "instructions": [
+        "asfd"
+      ],
+      "ingredients": [
+        {
+          "ingredient": "asdc",
+          "quantity": "2"
+        }
+      ],
+      "name": "asdf",
+      "description": "asfd",
+      "servingsize": "2",
+      "id": 5
+    },
+    {
+      "name": "svqef",
+      "description": "2aadf",
+      "servingsize": "2a",
+      "id": 6
+    },
+    {
+      "instructions": [
+        "asdf"
+      ],
+      "ingredients": [
+        {
+          "ingredient": "asdfw",
+          "quantity": "2"
+        }
+      ],
+      "name": "test",
+      "description": "asdf",
+      "servingsize": "2",
+      "id": 7
+    },
+    {
+      "instructions": [
+        "asaf"
+      ],
+      "ingredients": [
+        {
+          "ingredient": "dfge",
+          "quantity": "5f"
+        }
+      ],
+      "name": "asdqwe",
+      "description": "asdczcsd",
+      "servingsize": "3",
+      "id": 8
+    }
+  ],
+  "schedule": [
+    {
+      "id": 1,
+      "day": "Monday",
+      "date": "12-26-2016",
+      "breakfast": [
+        {
+          "ref": {
+            "id": 1,
+            "name": "Ommlette",
+            "uri": "/recipes/1"
+          }
+        },
+        {
+          "id": 2
+        }
+      ],
+      "lunch": [
+        "Chicken Caesan salad"
+      ],
+      "dinner": [
+        "Grilled Salmon"
+      ],
+      "snacks": [
+        "Fruit bowl",
+        "Protien shake"
+      ]
+    }
+  ]
 }

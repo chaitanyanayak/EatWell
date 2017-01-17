@@ -1,27 +1,27 @@
 <!--Add Recipe-->
-<div class="container" ng-controller="RecipeController">
-    <form name="addRecipeForm" ng-submit="recipeCtrl.addRecipe()">
+<div class="container" ng-controller="AddRecipeController">
+    <form name="addRecipeForm" ng-submit="addRecipe()">
 
         <!--  Live Preview -->
         <!--  <blockquote >
-    <strong>{{recipeCtrl.review.stars}} Stars</strong>
-    {{recipeCtrl.review.body}}
-    <cite class="clearfix">—{{recipeCtrl.review.author}}</cite>
+    <strong>{{review.stars}} Stars</strong>
+    {{review.body}}
+    <cite class="clearfix">—{{review.author}}</cite>
   </blockquote>-->
 
         <!--  Review Form -->
         <h4>Add a Recipe</h4>
         <fieldset class="row form-group">
             <span class="col-xs-4">Name : </span>
-            <input class="col-xs-8" ng-model="recipeCtrl.recipe.name" type="text" class="form-control" placeholder="Chicken Curry" title="Name" />
+            <input class="col-xs-8" ng-model="recipe.name" type="text" class="form-control" placeholder="Chicken Curry" title="Name" />
         </fieldset>
         <fieldset class="row form-group">
             <span class="col-xs-4">Description : </span>
-            <input class="col-xs-8" ng-model="recipeCtrl.recipe.description" type="text" class="form-control" placeholder="Breif Description" title="Description" />
+            <input class="col-xs-8" ng-model="recipe.description" type="text" class="form-control" placeholder="Breif Description" title="Description" />
         </fieldset>
         <fieldset class="row form-group">
             <span class="col-xs-4">Serving Size : </span>
-            <input class="col-xs-8" ng-model="recipeCtrl.recipe.servingsize" type="text" class="form-control" placeholder="4" title="Serving Size" />
+            <input class="col-xs-8" ng-model="recipe.servingsize" type="text" class="form-control" placeholder="4" title="Serving Size" />
         </fieldset>
         <!--<fieldset class="row form-group">
       <span class="field-name col-xs-12">Ingredients : </span>
@@ -32,8 +32,8 @@
           </thead>
           <tbody>
             <tr>
-                <td class="col-xs-8"><input ng-model="recipeCtrl.recipe.ingredient" type="text" class="form-control" placeholder="Chicken" title="Ingredient" /></td>
-                <td class="col-xs-3"><input ng-model="recipeCtrl.recipe.quantity" type="text" class="form-control" placeholder="2 lbs" title="Quantity" /></td>
+                <td class="col-xs-8"><input ng-model="recipe.ingredient" type="text" class="form-control" placeholder="Chicken" title="Ingredient" /></td>
+                <td class="col-xs-3"><input ng-model="recipe.quantity" type="text" class="form-control" placeholder="2 lbs" title="Quantity" /></td>
                 <td class="col-xs-1"></td>
               </tr>
           </tbody>
@@ -42,38 +42,42 @@
         <fieldset class="form-group">
             <span class="field-name col-xs-12">Instructions : </span>
             <!-- Will be filled by the function        -->
-            <div class="row" ng-repeat="instr in recipeCtrl.recipe.instructions">
+            <div class="row" ng-repeat="instr in recipe.instructions">
                 <span class="col-xs-1">{{$index+1}}</span>
                 <span class="col-xs-4">{{instr}}</span>
             </div>
             <div class="row">
-                <input class="col-xs-10" ng-model="recipeCtrl.instruction" type="text" placeholder="Instruction" title="Instruction" />
-                <button class="col-xs-2" type="button" ng-click="recipeCtrl.addInstruction()">Add</button>
+                <input class="col-xs-10" ng-model="instruction" type="text" placeholder="Instruction" title="Instruction" />
+                <button class="col-xs-2" type="button" ng-click="addInstruction()">Add</button>
             </div>
-            <div class="row" ng-repeat="ingr in recipeCtrl.recipe.ingredients">
+            <div class="row" ng-repeat="ingr in recipe.ingredients">
                 <span class="col-xs-1">{{$index+1}}</span>
                 <span class="col-xs-4">{{ingr.ingredient}}</span>
                 <span class="col-xs-4">{{ingr.quantity}}</span>
             </div>
             <div class="row">
-                <input class="col-xs-7" ng-model="recipeCtrl.ingredient" type="text" placeholder="Ingredient" title="Ingredient" />
-                <input class="col-xs-3" ng-model="recipeCtrl.quantity" type="text" placeholder="Quantity" title="Quantity" />
-                <button class="col-xs-2" type="button" ng-click="recipeCtrl.addIngredient()">Add</button>
+                <input class="col-xs-7" ng-model="ingredient" type="text" placeholder="Ingredient" title="Ingredient" />
+                <input class="col-xs-3" ng-model="quantity" type="text" placeholder="Quantity" title="Quantity" />
+                <button class="col-xs-2" type="button" ng-click="addIngredient()">Add</button>
             </div>
         </fieldset>
         <fieldset class="row form-group">
-            <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+            <input type="submit" class="btn btn-primary pull-right" value="Add Recipe" />
         </fieldset>
     </form>
 
-    <div>
+    <div class="row" ng-if="!showRecipes">
+        {{message}}
+    </div>
+
+    <div ng-if="showRecipes">
         <div class="row">
             <span class="field-name col-xs-3">Name</span>
             <span class="field-name col-xs-4">Description</span>
             <span class="field-name col-xs-2">Serving Size</span>
             <span class="field-name col-xs-3">Instructions</span>
         </div>
-        <div class="row" ng-repeat="recipe in recipeCtrl.recipes">
+        <div class="row" ng-repeat="recipe in recipes">
             <span class="col-xs-3">{{recipe.name}}</span>
             <span class="col-xs-4">{{recipe.description}}</span>
             <span class="col-xs-2">{{recipe.servingsize}}</span>
