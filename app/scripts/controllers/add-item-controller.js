@@ -2,22 +2,17 @@
     'use strict';
     angular.module('eatWell')
         .controller('AddItemController', ['$scope', 'recipeService', 'scheduleService', function ($scope, recipeService, scheduleService) {
-            $scope.breakfast = "";
+            $scope.breakf = "";
 
             $scope.recipes = recipeService.getRecipes().query();
 
             $scope.addBreakfastItem = function () {
 
-                var recipe = {
-                    id: $scope.breakfast
-                };
-
-                $scope.day.breakfast.push(recipe);
-                console.log(JSON.stringify($scope.day));
+                $scope.day.breakfast.push($scope.breakf);
                 scheduleService.getSchedule().update({
-                    id: $scope.day.id
+                    id: $scope.day._id
                 }, $scope.day);
-                $scope.breakfast = "";
+                $scope.breakf = "";
             };
         }]);
 })();

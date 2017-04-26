@@ -23,7 +23,7 @@
                     url: 'aboutus',
                     views: {
                         'content@': {
-                            template: 'views/aboutus.html'
+                            templateUrl: 'views/aboutus.html'
                         }
                     }
                 })
@@ -39,7 +39,29 @@
                 }
             })
 
-            // route for the dishdetail page
+            // route for the menu page
+            .state('app.recipelist', {
+                url: 'recipelist',
+                views: {
+                    'content@': {
+                        templateUrl: 'views/recipelist.html',
+                        controller: 'RecipeController'
+                    }
+                }
+            })
+
+            // route for the menu page
+            .state('app.recipeTiles', {
+                url: 'recipelist',
+                views: {
+                    'content@': {
+                        templateUrl: 'views/recipeTiles.html',
+                        controller: 'RecipeController'
+                    }
+                }
+            })
+
+            // route for the recipe page
             .state('app.recipe', {
                 url: 'recipe/:id',
                 views: {

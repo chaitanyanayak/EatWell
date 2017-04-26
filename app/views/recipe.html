@@ -1,25 +1,87 @@
 <div class="container" ng-controller="RecipeController">
-    <div class="row">
-        <span class="field-name col-xs-3">Name</span>
-        <span class="col-xs-3">{{recipe.name}}</span>
+    <div class="row" ng-if="!editRecipe">
+        <div class="row">
+            <span class="field-name col-xs-3"></span>
+            <span class="col-xs-3">
+        <button class="btn btn-xs btn-primary pull-right" type="button" ng-click="enableEditRecipe()">Edit Recipe</button></span>
+            <span class="col-xs-3">
+        <button class="btn btn-xs btn-primary pull-right" type="button" ui-sref="app.recipelist">Back to Recipes</button></span>
+        </div>
+        <div class="row">
+            <h2>{{recipe.name}}</h2>
+        </div>
+        <div class="row">
+            <span>{{recipe.description}}</span>
+        </div>
+        <br/>
+        <div class="row">
+            <span>Serving Size : {{recipe.servingsize}}</span>
+        </div>
+        <div class="row">
+            <h4>Instructions</h4>
+        </div>
+        <div class="row" ng-repeat="instr in recipe.instructions">
+            <span>{{$index+1}} . </span>
+            <span>{{instr.instruction}}</span>
+        </div>
+        <div class="row">
+            <h4>Ingredients</h4>
+        </div>
+        <div class="row" ng-repeat="ingr in recipe.ingredients">
+            <span>{{ingr.quantity}}</span>
+            <span>{{ingr.ingredient}}</span>
+        </div>
+        <div class="row">
+            <span class="field-name col-xs-3"></span>
+            <span class="col-xs-3">
+        <button class="btn btn-xs btn-primary pull-right" type="button" ng-click="enableEditRecipe()">Edit Recipe</button></span>
+            <span class="col-xs-3">
+        <button class="btn btn-xs btn-primary pull-right" type="button" ui-sref="app.recipelist">Back to All Recipes</button></span>
+        </div>
     </div>
-    <div class="row">
-        <span class="field-name col-xs-4">Description</span>
-        <span class="col-xs-4">{{recipe.description}}</span>
-    </div>
-    <div class="row">
-        <span class="field-name col-xs-2">Serving Size</span>
-        <span class="col-xs-2">{{recipe.servingsize}}</span>
-    </div>
-    <div class="row">
-        <span class="field-name col-xs-3">Instructions</span>
-        <span class="col-xs-3">{{recipe.instructions[0]}}</span>
-    </div>
-    <div class="row">
-    </div>
-    <div class="row" ng-repeat="ingr in recipe.ingredients">
-        <span class="col-xs-3">{{ingr.ingredient}}</span>
-        <span class="col-xs-4">{{ingr.quantity}}</span>
-    </div>
+    <div class="row" ng-if="editRecipe">
+        <form name="editRecipeForm" ng-submit="updateRecipe()">
 
-</div>
+            <!--  Review Form -->
+            <h4>Edit Recipe</h4>
+            <fieldset class="row form-group">
+                <span class="col-lg-2 col-xs-3 text-right">Name : </span>
+                <input class="col-lg-4 col-xs-8" ng-model="recipe.name" type="text" class="form-control" placeholder="Chicken Curry" title="Name" />
+            </fieldset>
+            <fieldset class="row form-group">
+                <span class="col-lg-2 col-xs-3 text-right">Description : </span>
+                <input class="col-lg-4 col-xs-8" ng-model="recipe.description" type="text" class="form-control" placeholder="Breif Description" title="Description" />
+            </fieldset>
+            <fieldset class="row form-group">
+                <span class="col-lg-2 col-xs-4 text-right">Serving Size : </span>
+                <input class="col-lg-4 col-xs-8" ng-model="recipe.servingsize" type="text" class="form-control" placeholder="4" title="Serving Size" />
+            </fieldset>
+            <fieldset class="form-group">
+                <h3 class="col-xs-12">Instructions</h3>
+                <!-- Will be filled by the function   -->
+                <div class="row" ng-repeat="instr in recipe.instructions">
+                    <span class="col-xs-1">{{$index+1}}</span>
+                    <input class="col-xs-10" ng-model="instr.instruction" type="text" />
+                </div>
+                <div class="row">
+                    <input class="col-xs-10" ng-model="instruction" type="text" placeholder="Instruction" title="Instruction" />
+                    <button class="col-xs-2" type="button" ng-click="addInstruction()">Add</button>
+                </div>
+                <div class="row" ng-repeat="ingr in recipe.ingredients">
+                    <span class="col-xs-1">{{$index+1}}</span>
+                    <span class="col-xs-4">{{ingr.ingredient}}</span>
+                    <span class="col-xs-4">{{ingr.quantity}}</span>
+                </div>
+                <div class="row">
+                    <input class="col-xs-7" ng-model="ingredient" type="text" placeholder="Ingredient" title="Ingredient" />
+                    <input class="col-xs-3" ng-model="quantity" type="text" placeholder="Quantity" title="Quantity" />
+                    <button class="col-xs-2" type="button" ng-click="addIngredient()">Add</button>
+                </div>
+            </fieldset>
+            <fieldset class="row form-group">
+                <input type="button" class="btn btn-xs btn-primary" value="Cancel" ng-click="cancelEdit()" />
+                <input type="submit" class="btn btn-xs btn-primary pull-right" value="Update Recipe" />
+            </fieldset>
+        </form>
+
+    </div>

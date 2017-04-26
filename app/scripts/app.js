@@ -2,6 +2,12 @@
 
     var app = angular.module('eatWell', ['app-directives', 'ngResource', 'ui.router']);
 
+    app.config(['$httpProvider', function ($httpProvider) {
+            $httpProvider.defaults.useXDomain = true;
+            delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        }
+            ]);
+
     $(document).ready(function () {
         /* $('.day').on('click','.addButton',function () {
              $(this).before('<input type="text" class="newitem"/>');

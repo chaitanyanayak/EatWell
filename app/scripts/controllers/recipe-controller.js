@@ -2,21 +2,38 @@
     'use strict';
     angular.module('eatWell')
         .controller('RecipeController', ['$scope', '$stateParams', 'recipeService', function ($scope, $stateParams, recipeService) {
-            $scope.recipeItem = 1;
 
-            $scope.recipeItem = parseInt($stateParams.id, 10);
+            $scope.showRecipes = true;
+            $scope.message = "Loading Recipes . . . ";
+
+            recipeService.getRecipes().query(
+                function (response) {
+                    $scope.recipes = response;
+                },
+                function (response) {
+                    $scope.message = "Error: " + response.status + " " + response.statusText;
+                });
 
             $scope.recipe = recipeService.getRecipes().get({
-                id: $scope.recipeItem
+                id: $stateParams.id
             });
 
-            /*$scope.recipe = {};
+            $scope.editRecipe = false;
 
-recipeService.getRecipe($scope.recipeItem)
-    .then(function (response) {
-        $scope.recipe = response.data;
-    }, function (response) {
-        $scope.message = "Error: " + response.status + " " + response.statusText;
-    });*/
+            $scope.enableEditRecipe = function () {
+                $scope.editRecipe = true;
+            };
+
+            $scope.updateRecipe = function () {
+                recipeService.getRecipes().update({
+                    id: $scope.recipe.id
+                }, $scope.recipe);
+                $scope.editRecipe = false;
+            };
+
+            $scope.cancelEdit = function () {
+                $scope.editRecipe = false;
+            }
+
         }]);
 })();

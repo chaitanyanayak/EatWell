@@ -1,26 +1,41 @@
 <div id="container" class="container" ng-controller="ScheduleController">
     <div class="week row seven-cols">
-        <div class="day col-xs-12 col-sm-4 col-md-1" ng-repeat="day in schedule">
+        <div class="day col-xs-12 col-sm-4 col-md-2" ng-repeat="day in schedule">
             <h3>{{day.day}}</h3>
             <h5>{{day.date}}</h5>
             <div class="meal">
                 <h4>Breakfast</h4>
-                <form class="form-horizontal" name="addBreakfast" ng-controller="AddItemController" ng-submit="addBreakfastItem()" novalidate>
-                    <select class="form-control" ng-model="breakfast" ng-options="recipe.id as recipe.name for recipe in recipes">
+                <ul class="items" ng-repeat="bf in day.breakfast">
+                    <li><a ui-sref="app.recipe({id: bf._id})">{{bf.name}}</a></li>
+                </ul>
+                <a href="addBreakfastItem()"><i class="fa fa-plus-circle"></i></a>
+
+                <form class="form-horizontal" name="addBreakfast" ng-submit="addBreakfastItem()" novalidate>
+                    <select class="form-control" ng-model="breakf" ng-options="recipe.name for recipe in recipes" ng-s>
                         <option value="">Item</option>
                     </select>
-                    <input type="text" class="newitem" ng-model="breakfast" required/>
+                    <!--<input type="text" class="newitem" ng-model="breakfast" required/>-->
                     <input type="submit" class="btn btn-primary pull-right" value="Add" />
                 </form>
-                <ul class="items" ng-repeat="item in day.breakfast">
-                    <li><a ui-sref="app.recipe({id: item.ref.id})">{{item.ref.name}}</a></li>
-                </ul>
+
             </div>
             <div class="meal">
                 <h4>Lunch</h4>
-                <ul class="items" ng-repeat="item in day.lunch">
-                    <li>{{item}}</li>
+                <ul class="items" ng-repeat="lu in day.lunch">
+                    <li><a ui-sref="app.recipe({id: lu._id})">{{lu.name}}</a></li>
                 </ul>
+                <div class="row">
+                    <div class="col-xs-1"><a href="" ng-click="showAddItem=true"><i class="fa fa-plus-circle"></i></a></div>
+
+                    <div class="col-xs-11" ng-if="showAddItem">
+
+                        <select class="form-control" ng-model="lunchSelected" ng-options="recipe.name for recipe in recipes" ng-change="onLunchSelected()">
+                            <option value="">Item</option>
+                        </select>
+
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="meal">
                 <h4>Dinner</h4>
