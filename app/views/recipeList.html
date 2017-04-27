@@ -1,0 +1,25 @@
+<div class="container" ng-controller="RecipeController">
+    <div class="row" ng-if="!showRecipes">
+        {{message}}
+    </div>
+    <div ng-if="showRecipes">
+        <div class="row">
+            <span class="field-name col-xs-2">Name</span>
+            <span class="field-name col-xs-3">Description</span>
+            <span class="field-name col-xs-1">Servings</span>
+            <!--<span class="field-name col-xs-3">Instructions</span>
+<span class="field-name col-xs-3">Ingredient</span>-->
+        </div>
+        <div class="row">
+            <input class="col-xs-6" type="text" placeholder="Search Recipe" ng-model="search.name" title="Filter" />
+        </div>
+        <div class="row" ng-repeat="recipe in recipes | filter:search:strict">
+            <div>
+                <span class="col-xs-2"><a ui-sref="app.recipe({id: recipe._id})">{{recipe.name}}</a></span>
+                <span class="col-xs-3">{{recipe.description}}</span>
+                <span class="col-xs-1">{{recipe.servingsize}}</span>
+                <!--<span class="col-xs-3">{{recipe.instructions[0].instruction}}</span>
+<span class="col-xs-3">{{recipe.ingredients[0].ingredient}}</span>-->
+            </div>
+        </div>
+    </div>
